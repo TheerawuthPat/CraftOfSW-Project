@@ -1,19 +1,29 @@
 {% load static %}
 <!DOCTYPE html>
-<html style="font-size: 16px;">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="UXUI&nbsp;Portfolio, i am UX-UI, webuildWeb &amp; Mobile App, We design People Inspired Experiences that create positive change in people's lives.">
-    <meta name="description" content="">
-    <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Overview</title>
-    <link rel="stylesheet" href="{% static 'css/base.css'%}" media="screen">
-    <link rel="stylesheet" href="{% static 'css/overview.css'%}" media="screen">
-    <script class="u-script" type="text/javascript" src="{% static 'js/jqurey.js'%}" defer=""></script>
-    <script class="u-script" type="text/javascript" src="{% static 'js/jsbase.js'%}" defer=""></script>
-    <meta name="generator" content="Nicepage 3.30.2, nicepage.com">
-    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
-    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+            {% block style %}{% endblock %}
+            {% block script %}{% endblock %}
+            <link rel="stylesheet" href="{% static 'css/base.css'%}">
     </head>
+        <body>
+            <header>
+                <div class="nav-left">
+                    <h1><a href="{% url 'home' %}">Django blog</a></h1>
+                </div>
+            </header>
+            {% if user.is_authenticated %}
+                <p>Hi {{ user.username }}!</p>
+            <p><a href="{% url 'logout' %}">Log out</a></p> <!--new-->
+            {% else %}
+                <p>You are not logged in.</p>
+            <a href="{% url 'login' %}">Log In</a>
+            {% endif %}
+            {% block content %}
+            {% endblock %}
+        </body>
 </html>

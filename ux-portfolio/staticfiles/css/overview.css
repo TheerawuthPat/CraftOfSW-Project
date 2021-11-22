@@ -17,6 +17,12 @@
   margin: -343px auto 0;
 }
 
+.u-section-1 .u-image-about-profile {
+  background-image: url("/static/images/about_me.png");
+  background-position: 50% 50%;
+  margin: -343px auto 0;
+}
+
 .u-section-1 .u-text-1 {
   text-transform: uppercase;
   font-weight: 300;
