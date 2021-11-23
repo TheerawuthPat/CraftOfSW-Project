@@ -22,4 +22,7 @@ class AboutPageView(TemplateView):
 
 class ContactPageView(TemplateView):
     template_name = 'blogs/contact.html'
+
+class ContactListPageView(TemplateView):
+    template_name = 'blogs/contact-list.html'
     
