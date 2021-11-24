@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, ListView, UpdateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy # new
 from .models import Contact
@@ -35,8 +35,7 @@ class ContactPageView(CreateView):
     success_url = reverse_lazy('home')
     fields = ['firstname', 'lastname', 'email', 'phone']
 
-class ContactListPageView(TemplateView):
+class ContactListPageView(ListView):
     model = Contact
     template_name = 'blogs/contact-list.html'
-    fields = ['firstname', 'lastname', 'email', 'phone']
     
